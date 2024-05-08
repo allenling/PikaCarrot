@@ -366,6 +366,13 @@ class PikaCorot(PikaAsync):
                 getattr(self, trap[0])(*trap[1:])
         return
 
+    def stop(self):
+        # we can not just simply empty the ready_queue,
+        # because there might be some threads appending tasks into the ready_queue.
+        self.running = False  # we will not run any tasks by running as False.
+        self.close()
+        return
+
     # ===================================
 
     def acknowledge_message(self, delivery_tag):

@@ -92,22 +92,21 @@ class PikaCreo(PikaCorot):
         return
 
     async def shutdown(self):
-        for wname, t in self.workers.items():
+        for name, t in self.workers.items():
             t.stop()
         try:
             async with TimeoutAfter(5):
-                for wname, t in self.workers.items():
+                for name, t in self.workers.items():
                     await await_future(t.terminated_fut)
         except TimeoutError:
             pass
         alive_workers = []
-        for wname, t in self.workers.items():
+        for name, t in self.workers.items():
             if t.is_alive():
-                alive_workers.append(wname)
+                alive_workers.append(name)
         if alive_workers:
-            logger.warning(f"workers {alive_workers} still alive, but we are leaving!")
-        self.running = False  # we will not run any tasks as of this.
-        self.close()
+            logger.warning(f"workers {alive_workers} still alive, but we are leaving! the tasks will stay in the queue as unack.")
+        self.stop()
         return
 
     def start(self):

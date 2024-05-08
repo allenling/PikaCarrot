@@ -248,6 +248,33 @@ and the main thread will play a wait-and-launch, or wait-and-apply, wait-and-dis
 
 and we love async/await and its nature of sequential executions in one async function.
 
+```python
+
+async def my_func1():
+    await func1()
+    await func2()
+    return
+
+async def my_func2():
+    await func3()
+    await func4()
+    return
+
+```
+
+as you can see, the func2 runs after func1 finished, but you can not predict the execution order of func1 and func3.
+
+and one more thing, there's exact one task running at a time in the context of scheduling, which makes it easy to test and
+reason about compared to multithreading.
+
+e.g. in some kind of extreme case where you may want to halt the system and stop running any tasks, this one-task inherent property
+will be very helpful.
+
+you can do that by just setting a global variable as false in one task, then by the time the kernel runs the next task, it
+will first check the variable, and then just terminate and return.
+
+you do not have to worry there's another "thread" modifying that global variable with the help of this one-task characteristic.
+
 there's a couple of choices for us in terms of coroutines scheduling libs behind the scenes.
 
 the first one, asyncio, which is included in Python as a standard lib, but complicated, and people tend to kind of replace it with

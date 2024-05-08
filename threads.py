@@ -86,6 +86,7 @@ class ThreadWorker(threading.Thread):
         return
 
     def stop(self):
+        # we can make this async/await in the future.
         self.q.put(None)
         return
 
