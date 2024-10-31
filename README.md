@@ -37,6 +37,8 @@ class PikaCelery(PikaCarrot):
         await self.bind_x_q(x_name, q_name, routing_key)
         await self.consume_queue(q_name)
         return
+app = PikaCelery("amqp://guest:guest@localhost:5672/%2F")
+app.start()
 ```
 
 it's more of a prototype, or boilerplate shows how to build a Celery-like application with minimal functionalities.
