@@ -1,23 +1,23 @@
 
 # PikaCorot
 
-an async/await APIs augment for pika using Curio as the implementation reference, and no third-party libs needed. 
+an async/await APIs augment for Pika, using Curio as the implementation reference, and no third-party libs needed. 
 
-PikaCorot is a simple implementation of a coroutine kernel the same as the one in Curio.
+PikaCarrot is a simple implementation of a coroutine kernel as the one in Curio.
 
-it is built on the top of the builtin selection event loop in pika.
+it is based on the top of the builtin event loop used in Pika.
 
-## PikaCreo
+## usage
 
-an example of building a Celery-like application on the top of PikaCorot. 
+an example of an Celery-like application. 
 
 ```python
 
 
-from pika_corot import PikaCorot, spawn
+from pika_carrot import PikaCarrot, spawn
 
 
-class PikaCreo(PikaCorot):
+class PikaCelery(PikaCarrot):
 
     async def setup_app(self):
         # after opening a channel successfully.
