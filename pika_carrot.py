@@ -224,7 +224,7 @@ class Task:
 # ===============================================
 
 
-class PikaCorot(PikaAsync):
+class PikaCarrot(PikaAsync):
     """
     a kernel
     """
