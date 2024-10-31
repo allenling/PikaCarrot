@@ -1,5 +1,5 @@
 
-# PikaCorot
+# PikaCarrot
 
 an async/await APIs augment for Pika, using Curio as the implementation reference, and no third-party libs needed. 
 
