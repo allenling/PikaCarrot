@@ -11,7 +11,7 @@ from threads import ThreadWorker, WorkItem, raise_thread_exception
 logger = logging.getLogger(__file__)
 
 
-class PikaCreo(PikaCorot):
+class PikaCelery(PikaCorot):
     worker_id = 0
     workers_count = 10
     workers = dict()
@@ -47,7 +47,7 @@ class PikaCreo(PikaCorot):
     async def _setup(self):
         # you might want to declare multiple exchanges and queues here.
         await self.setup_qos(10, global_qos=True)
-        x_name, q_name, routing_key = "PikaCreo.x", "PikaCreo.q", "PikaCreo.k"
+        x_name, q_name, routing_key = "PikaCelery.x", "PikaCelery.q", "PikaCelery.k"
         await self.declare_x(x_name, "direct")
         await self.declare_q(q_name)
         await self.bind_x_q(x_name, q_name, routing_key)
@@ -128,7 +128,7 @@ def main():
     logging.basicConfig(level=logging.INFO,
                         format="[%(asctime)s.%(msecs)03d]%(levelname)s %(process)d_%(thread)d[%(filename)s.%(funcName)s:%(lineno)d] %(message)s",
                         )
-    x = PikaCreo("amqp://guest:guest@localhost:5672/%2F")
+    x = PikaCelery("amqp://guest:guest@localhost:5672/%2F")
     x.start()
     return
 
