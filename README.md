@@ -1,5 +1,5 @@
 
-# PikaCarrot
+# Pikake
 
 an async/await APIs augment to Pika, using Curio as the implementation reference, and no third-party libs needed. 
 
@@ -14,10 +14,10 @@ an example of an Celery-like application.
 ```python
 
 
-from pika_carrot import PikaCarrot, spawn
+from pikake import Pikake, spawn
 
 
-class PikaCelery(PikaCarrot):
+class AsyncCelery(Pikake):
 
     async def setup_app(self):
         # after opening a channel successfully.
@@ -37,7 +37,7 @@ class PikaCelery(PikaCarrot):
         await self.bind_x_q(x_name, q_name, routing_key)
         await self.consume_queue(q_name)
         return
-app = PikaCelery("amqp://guest:guest@localhost:5672/%2F")
+app = AsyncCelery("amqp://guest:guest@localhost:5672/%2F")
 app.start()
 ```
 
