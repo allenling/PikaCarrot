@@ -3,7 +3,9 @@
 
 an async/await distributed tasks application based on the top of the builtin event loop used in Pika
 
-here we implement a coroutine kernel as in Curio, which is a prominent educational python asyncio library.
+by this robust event loop,  we implement a asycio kernel as in Curio, which is a prominent educational python asyncio library.
+
+and with this asyncio kernel, we build a distributed tasks celery-like application to simplify and streamline the entire process. 
 
 ## usage
 
