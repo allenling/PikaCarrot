@@ -3,7 +3,7 @@
 
 an async/await APIs augment to Pika, using Curio as the implementation reference, and no third-party libs needed. 
 
-PikaCarrot is a simple implementation of a coroutine kernel as in Curio.
+Pikake is a simple implementation of a coroutine kernel as in Curio.
 
 it is based on the top of the builtin event loop used in Pika.
 
