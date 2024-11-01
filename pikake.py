@@ -224,9 +224,9 @@ class Task:
 # ===============================================
 
 
-class PikaCarrot(PikaAsync):
+class Pikake(PikaAsync):
     """
-    a kernel
+    the kernel
     """
 
     _wake_queue = deque()
