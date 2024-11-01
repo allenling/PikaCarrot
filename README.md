@@ -1,11 +1,9 @@
 
 # Pikake
 
-an async/await APIs augment to Pika, using Curio as the implementation reference, and no third-party libs needed. 
+an async/await distributed tasks application based on the top of the builtin event loop used in Pika
 
-Pikake is a simple implementation of a coroutine kernel as in Curio.
-
-it is based on the top of the builtin event loop used in Pika.
+here we implement a coroutine kernel as in Curio, which is a prominent educational python asyncio library.
 
 ## usage
 
