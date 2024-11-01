@@ -295,7 +295,7 @@ implementation of amqp protocol.
 
 and fortunately we already have one, the pika per se!
 
-and to implement our own coroutine-based lib `PikaCorot`, we tried to mimic Curio.
+and to implement our own coroutine-based lib `Pikake`, we tried to mimic Curio.
 
 Curio is a prominent, concise, and neat coroutine-based lib in Python world.
 
@@ -443,7 +443,7 @@ and also the traps and the kernel should be decoupled.
 
 the traps are just specification, so that you can run your app on any kernel that implements those traps.
 
-so PikaCorot is a kernel that implements a couple of traps.
+so Pikake is a kernel that implements a couple of traps.
 
 e.g. there's a trap named future_wait, meaning the coroutine wants to wait on a future, and here is how we implemented that trap.
 
@@ -454,7 +454,7 @@ async def await_future(fut):
     return await kernel_trap("_trap_future_wait", fut)
 
 
-class PikaCorot(PikaAsync):
+class Pikake(PikaAsync):
 
     def future_back(self, fut: Future, task: Task):
         # the equivalent to the function wake in Curio.
