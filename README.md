@@ -31,7 +31,7 @@ class AsyncCelery(Pikake):
     async def _setup(self):
         await self.setup_qos(10, global_qos=True)
         # you might want to declare multiple exchanges and queues here.
-        x_name, q_name, routing_key = "PikaCreo.x", "PikaCreo.q", "PikaCreo.k"
+        x_name, q_name, routing_key = "Pikake.x", "Pikake.q", "Pikake.k"
         await self.declare_x(x_name, "direct")
         await self.declare_q(q_name)
         await self.bind_x_q(x_name, q_name, routing_key)
